@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h1>Crop image using javascript</h1>
+    <div data-controls class="controls">
+      <div class="control">
+        <label for="cols">Columns</label>
+        <input data-control="cols" min="1" value="4" type="number" />
+      </div>
+      <div class="control">
+        <label for="rows">Rows</label>
+        <input data-control="rows" min="1" value="2" type="number" />
+      </div>
+      <div class="control">
+        <label for="image">Image</label>
+        <input
+          data-control="image"
+          value="https://picsum.photos/900/600"
+          type="text"
+        />
+      </div>
+    </div>
+    <div class="img-container">
+      <div data-render="img8x8"></div>
+    </div>
+
+    <footer>
+      <i>Social buttons</i>
+
+      <div>
+        <a
+          href="https://github.com/arn48/image-croper"
+          title="Go to GitHub repo"
+        >
+          <img
+            src="https://img.shields.io/static/v1?label=arn48&message=image-croper&color=blue&logo=github"
+            alt="arn48 - image-croper"
+          />
+        </a>
+        <a href="https://github.com/arn48/image-croper">
+          <img
+            src="https://img.shields.io/github/stars/arn48/image-croper?style=social"
+            alt="stars - image-croper"
+          />
+        </a>
+        <a href="https://github.com/arn48/image-croper">
+          <img
+            src="https://img.shields.io/github/forks/arn48/image-croper?style=social"
+            alt="forks - image-croper"
+          />
+        </a>
+      </div>
+
+      <i>Repo metadata</i>
+
+      <div>
+        <a href="https://github.com/arn48/image-croper/releases/">
+          <img
+            src="https://img.shields.io/github/tag/arn48/image-croper?include_prereleases=&sort=semver&color=blue"
+            alt="GitHub tag"
+          />
+        </a>
+        <a href="#license">
+          <img
+            src="https://img.shields.io/badge/License-MIT-blue"
+            alt="License"
+          />
+        </a>
+        <a href="https://github.com/arn48/image-croper/issues">
+          <img
+            src="https://img.shields.io/github/issues/arn48/image-croper"
+            alt="issues - image-croper"
+          />
+        </a>
+      </div>
+
+      <h2>License</h2>
+      <div>
+        Released under
+        <a class="highlight" href="/LICENSE">MIT</a>
+        by
+        <a class="highlight" href="https://github.com/arn48">@arn48</a>
+        .
+      </div>
+    </footer>
+
+    <script src="crop.js"></script>
+    <link rel="stylesheet" href="crop.css" />
+  </body>
+</html>
