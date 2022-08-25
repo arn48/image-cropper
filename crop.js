@@ -44,9 +44,24 @@ function createImg(imagePieces) {
     renderDiv.innerHTML = images.join('')
   }
 }
+//sha function
+async function sha256(message) {
+  // encode as UTF-8
+  const msgBuffer = new TextEncoder().encode(message)
+
+  // hash the message
+  const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer)
+
+  // convert ArrayBuffer to Array
+  const hashArray = Array.from(new Uint8Array(hashBuffer))
+
+  // convert bytes to hex string
+  const hashHex = hashArray.map((b) => b.toString(16).padStart(2, '0')).join('')
+  return hashHex
+}
 //cutImageUp is the main function to crop
 function cutImageUp(numColsToCut = 4, numRowsToCut = 2, image) {
-  return function () {
+  return async function () {
     let imagePieces = []
     let totalWidth = this.width
     let totalHeight = this.height
@@ -72,6 +87,7 @@ function cutImageUp(numColsToCut = 4, numRowsToCut = 2, image) {
         )
         let imageDetails = {}
         imageDetails.src = canvas.toDataURL()
+        imageDetails.hash = await sha256(imageDetails.src)
         imageDetails.pos = {
           row: y,
           col: x,
@@ -84,6 +100,7 @@ function cutImageUp(numColsToCut = 4, numRowsToCut = 2, image) {
       (img1, img2) =>
         img1.pos.col - img2.pos.col && img1.pos.row - img2.pos.row,
     )
+    console.log(imagePieces)
     //imagePieces.sort((img1,img2) => b % 2 - a % 2 || a - b);
     createImg(imagePieces)
   }
